@@ -51,19 +51,20 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-md);
   list-style: none;
   margin-inline: auto;
 }
 
 .nav-links a {
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-full);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -97,8 +98,9 @@
 }
 
 .nav-cta .btn {
-  padding: 0.6rem 1.3rem;
-  font-size: var(--fs-xs);
+  padding: 0.8rem 1.5rem;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
 }
 
 /* ---------- Hamburger ---------- */

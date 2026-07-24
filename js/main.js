@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initNewsletterForm();
   initModals();
+  initAccordion();
 });
 
 // ─── Navbar Glass on Scroll ──────────────────────────────────
@@ -251,6 +252,29 @@ function initModals() {
         openModal('Industrial Training', 'This program is coming soon. Stay tuned for updates on our latest training modules.');
       } else if (type === 'careers') {
         openModal('Careers', 'We do all our job postings at <a href="https://reviewprobe.com" target="_blank" rel="noopener noreferrer">https://reviewprobe.com</a>. Check there for open roles!');
+      }
+    });
+  });
+}
+
+// ─── Accordion Logic ──────────────────────────────────────────
+function initAccordion() {
+  const toggles = document.querySelectorAll('.accordion-toggle');
+  
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      const panelId = toggle.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+      
+      if (!panel) return;
+      
+      if (isExpanded) {
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.classList.remove('is-open');
+      } else {
+        toggle.setAttribute('aria-expanded', 'true');
+        panel.classList.add('is-open');
       }
     });
   });

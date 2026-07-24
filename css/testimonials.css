@@ -1,0 +1,174 @@
+/* ============================================================
+   CSSLLC — Testimonials Section
+   testimonials.css | 3-column grid, accordion for ex-interns
+   ============================================================ */
+
+#testimonials {
+  background: var(--bg-primary);
+}
+
+/* ---------- Testimonials Grid ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+/* ---------- Testimonial Card ---------- */
+.testimonial-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--border-accent);
+}
+
+/* ---------- Header ---------- */
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* ---------- Avatar ---------- */
+.testimonial-avatar {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.testimonial-avatar-initials {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.testimonial-card:hover .testimonial-avatar-initials {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+}
+
+/* ---------- Info (Name, Role, Date) ---------- */
+.testimonial-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-name {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.testimonial-role {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.testimonial-date {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ---------- Body / Text ---------- */
+.testimonial-body {
+  flex-grow: 1;
+}
+
+.testimonial-body p {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+}
+
+/* ---------- Accordion ---------- */
+.accordion-container {
+  margin-top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accordion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  padding: 1rem 2.5rem;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.accordion-toggle:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+}
+
+.accordion-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-base);
+}
+
+.accordion-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  margin-top: 0;
+}
+
+.accordion-content.is-open {
+  max-height: 2000px; /* large enough to fit content */
+  opacity: 1;
+  margin-top: var(--space-xl);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: var(--space-lg); }
+}
