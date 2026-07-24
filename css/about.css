@@ -1,0 +1,182 @@
+/* ============================================================
+   CSSLLC — About / Process Section v2
+   about.css | "We See What Others Don't"
+              Vertical timeline mobile, horizontal desktop
+   ============================================================ */
+
+#about {
+  background: var(--bg-primary);
+}
+
+.about-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+}
+
+.about-headline {
+  font-size: var(--fs-4xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  max-width: 540px;
+  margin-bottom: var(--space-xl);
+}
+
+.about-intro {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: var(--space-3xl);
+}
+
+/* ---------- Process Steps — Desktop (horizontal) ---------- */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.process-step {
+  padding: var(--space-2xl);
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background var(--transition-base);
+}
+
+.process-step:last-child {
+  border-right: none;
+}
+
+.process-step:hover {
+  background: var(--bg-card);
+}
+
+/* Step number badge */
+.step-badge {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--border-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+  background: var(--accent-light);
+  letter-spacing: 0.02em;
+}
+
+/* Step icon */
+.step-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+}
+
+.step-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.step-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.step-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Connector arrow between steps (desktop) */
+.process-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: var(--space-2xl);
+  right: calc(-0.6em - 1px);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* ---------- Process Steps — Mobile (vertical timeline) ---------- */
+@media (max-width: 768px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    border: none;
+    border-radius: 0;
+    gap: 0;
+  }
+
+  .process-step {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-xl) var(--space-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .process-step:last-child { border-bottom: none; }
+
+  /* Vertical timeline node */
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-lg) + 17px);
+    top: 100%;
+    width: 2px;
+    height: var(--space-xl);
+    background: var(--border-accent);
+    opacity: 0.4;
+  }
+
+  .process-step:last-child::before { display: none; }
+  .process-step::after { display: none; }
+
+  .step-badge {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .step-icon { display: none; }
+
+  .step-body {
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-step:nth-child(2) { border-right: none; }
+  .process-step:nth-child(2)::after { display: none; }
+
+  .process-step:nth-child(1),
+  .process-step:nth-child(2) {
+    border-bottom: 1px solid var(--border);
+  }
+}

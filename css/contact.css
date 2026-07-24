@@ -1,0 +1,210 @@
+/* ============================================================
+   CSSLLC — Contact Section v2
+   contact.css | Two addresses, touch-friendly 44px targets
+   ============================================================ */
+
+#contact {
+  background: var(--bg-secondary);
+}
+
+/* ---------- Contact Layout ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+/* ---------- Contact Info (Left) ---------- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.contact-intro {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+/* Contact Items */
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  min-height: 44px;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background: var(--accent-light);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-base);
+}
+
+.contact-item:hover .contact-icon {
+  background: rgba(168, 152, 128, 0.2);
+}
+
+.contact-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.contact-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 2px;
+}
+
+.contact-item-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-item-value {
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.contact-item-value a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-item-value a:hover { color: var(--accent); }
+
+/* ---------- Contact Form (Right) ---------- */
+.contact-form-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-input,
+.form-textarea {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 0.95rem;
+  color: var(--text-primary);
+  font-size: var(--fs-base);
+  outline: none;
+  width: 100%;
+  min-height: 44px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--text-muted); }
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #C0392B;
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-error {
+  font-size: var(--fs-xs);
+  color: #E07070;
+  display: none;
+}
+
+.form-error.show { display: block; }
+
+.form-submit {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: var(--fs-base);
+  margin-top: var(--space-sm);
+  min-height: 52px;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--accent);
+  font-weight: 500;
+  font-size: var(--fs-md);
+  background: var(--accent-light);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+}
+
+.form-success.show { display: block; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .contact-intro { max-width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .contact-form-wrapper { padding: var(--space-xl); }
+  .form-row { grid-template-columns: 1fr; }
+}
