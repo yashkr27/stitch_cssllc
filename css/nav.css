@@ -57,7 +57,7 @@
 }
 
 .nav-links a {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;

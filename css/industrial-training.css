@@ -1,0 +1,242 @@
+/* ============================================================
+   CSSLLC — Industrial Training Page
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.it-hero {
+  background: var(--bg-primary);
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.it-eyebrow {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-md);
+}
+
+.it-title {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  line-height: 1.1;
+}
+
+.it-subtitle {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.it-meta {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.it-hero-info {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: inline-block;
+  text-align: left;
+  margin-bottom: var(--space-xl);
+}
+
+.it-hero-info p {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.it-hero-info p:last-child {
+  margin-bottom: 0;
+}
+.it-hero-info strong {
+  color: var(--text-primary);
+}
+
+/* ---------- Course Overview / Divider ---------- */
+.it-overview {
+  background: var(--bg-secondary);
+  padding: var(--space-xl) 0;
+}
+.it-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: var(--space-md) auto 0;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Roadmap ---------- */
+.it-roadmap {
+  background: var(--bg-primary);
+}
+.it-roadmap-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.it-step {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  position: relative;
+}
+.it-step-num {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--border-accent);
+  margin-bottom: var(--space-sm);
+  opacity: 0.5;
+}
+.it-step h3 {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+.it-step p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------- Career Switch Banner ---------- */
+.it-career-switch {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-2xl) 0;
+}
+
+/* ---------- Tracks ---------- */
+.it-tracks {
+  background: var(--bg-primary);
+}
+.it-tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+.it-track-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+.it-track-title {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+.it-track-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.it-track-details li {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.it-track-details strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 2px;
+}
+.it-fee-note {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---------- Skill Map ---------- */
+.it-skillmap {
+  background: var(--bg-secondary);
+}
+.it-skillmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+.it-skill-col {
+  background: var(--bg-primary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+}
+.it-skill-col h3 {
+  font-size: var(--fs-lg);
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+}
+.it-skill-col h3 small {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.it-skill-col p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
+/* ---------- Workplace ---------- */
+.it-workplace {
+  background: var(--bg-primary);
+}
+.it-workplace-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  list-style: none;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.it-workplace-list li {
+  background: var(--bg-secondary);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--fs-base);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+}
+.it-workplace-list li::before {
+  content: "•";
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .it-roadmap-steps { grid-template-columns: repeat(2, 1fr); }
+  .it-tracks-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .it-roadmap-steps { grid-template-columns: 1fr; }
+  .it-skillmap-grid { grid-template-columns: 1fr; }
+  .it-workplace-list { grid-template-columns: 1fr; }
+}

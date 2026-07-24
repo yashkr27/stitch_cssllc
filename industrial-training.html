@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IT Industrial Training by Computer Software Solutions LLC." />
+  <title>Industrial Training | Computer Software Solutions LLC</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/industrial-training.css" />
+  <link rel="stylesheet" href="css/testimonials.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Main navigation" style="background: rgba(26, 26, 26, 0.92); box-shadow: 0 1px 0 var(--border);">
+      <div class="container">
+        <div class="nav-inner">
+          <button id="hamburger" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <a href="index.html" class="nav-logo" aria-label="Computer Software Solutions LLC - Home">
+            <img src="assets/icons/logo.png" alt="CSSllc Logo" class="nav-logo-img" />
+          </a>
+          <ul class="nav-links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">Process</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="industrial-training.html" class="active">Industrial Training</a></li>
+            <li><a href="#" data-open-modal="careers">Careers</a></li>
+          </ul>
+          <div class="nav-cta">
+            <a href="index.html#contact" class="btn btn-primary" id="nav-cta-btn">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <ul class="mobile-menu-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about">Process</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="industrial-training.html" class="active">Industrial Training</a></li>
+        <li><a href="#" data-open-modal="careers">Careers</a></li>
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <main style="padding-top: var(--nav-height);">
+    <section id="testimonials" class="section" aria-label="Testimonials" style="padding-top: var(--space-2xl);">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="section-eyebrow">Testimonials</span>
+          <h2 class="section-title">People Who Have Taken Our Training</h2>
+          <p class="section-subtitle">
+            Hear directly from students and interns who have gone through our rigorous industrial training program.
+          </p>
+        </div>
+
+        <!-- Active Interns (Visible by default) -->
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal" aria-label="Testimonial from Sudeb Mitra">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Sudeb Mitra</h3>
+                <span class="testimonial-date">Working here since Jan 2025</span>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p>"Building CSSllc has been an incredible journey. I'm proud of the culture we've created and the impactful digital solutions we deliver for our clients every day."</p>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal" aria-label="Testimonial from Lopa Mudra Banerjee">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <div class="testimonial-avatar-initials" aria-hidden="true">LB</div>
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Lopa Mudra Banerjee</h3>
+                <span class="testimonial-date">Working here since Feb 2025</span>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p>"The collaborative environment here is unmatched. We prioritize clear communication, which allows our team to tackle complex challenges with speed and precision."</p>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal" aria-label="Testimonial from Hritik Singh">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <div class="testimonial-avatar-initials" aria-hidden="true">HS</div>
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Hritik Singh</h3>
+                <span class="testimonial-date">Working here since Feb 2026</span>
+              </div>
+            </div>
+            <div class="testimonial-body">
+              <p>"As an active intern, I've had the chance to work on real-world production apps. The mentorship and hands-on coding experience have been phenomenal for my career."</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Accordion Toggle for Ex-Interns -->
+        <div class="accordion-container reveal">
+          <button class="btn btn-outline accordion-toggle" aria-expanded="false" aria-controls="ex-interns-panel" aria-label="Expand" style="padding: 1rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 20px; height: 20px; margin: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+          </button>
+          
+          <div id="ex-interns-panel" class="accordion-content">
+            <div class="testimonials-grid">
+              
+              <article class="testimonial-card" aria-label="Testimonial from Sanmay Das">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <div class="testimonial-avatar-initials" aria-hidden="true">SD</div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h3 class="testimonial-name">Sanmay Das</h3>
+                    <span class="testimonial-date">Worked: Jan 2025 - Dec 2025</span>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p>"My time at CSSllc was transformative. I leveled up my full-stack skills drastically and the team supported my growth every step of the way."</p>
+                </div>
+              </article>
+
+              <article class="testimonial-card" aria-label="Testimonial from Swarnava Mondal">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h3 class="testimonial-name">Swarnava Mondal</h3>
+                    <span class="testimonial-date">Worked: Feb 2025 - Nov 2025</span>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p>"Being able to design user interfaces that actually shipped to production was a massive boost to my portfolio. It's a great place for creative freedom."</p>
+                </div>
+              </article>
+
+              <article class="testimonial-card" aria-label="Testimonial from Anik Dutta">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <div class="testimonial-avatar-initials" aria-hidden="true">AD</div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h3 class="testimonial-name">Anik Dutta</h3>
+                    <span class="testimonial-date">Worked: Mar 2025 - Jan 2026</span>
+                  </div>
+                </div>
+                <div class="testimonial-body">
+                  <p>"The robust code review process and emphasis on scalable architecture taught me more in a few months than I learned in years of schooling."</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. & 3. COURSE OVERVIEW & ROADMAP (Merged for spacing) -->
+    <section class="it-roadmap section">
+      <div class="container">
+        
+        <div class="section-header centered" style="margin-bottom: var(--space-3xl);">
+          <h2 class="section-title">Course Overview</h2>
+          <div class="it-divider" style="margin-bottom: var(--space-xl);"></div>
+          
+          <h3 style="font-size: var(--fs-2xl); color: var(--text-primary); margin-bottom: var(--space-sm);">Be Industry Ready Within 16 Weeks</h3>
+          <p class="section-subtitle">
+            From Novice to Tech Pro: Transform yourself from rookie to industry-ready professional in 16 weeks using our time-tested, proven methodology.
+          </p>
+        </div>
+
+        <div class="it-roadmap-steps">
+          <div class="it-step">
+            <div class="it-step-num">01</div>
+            <h3>Phase 1: Foundations</h3>
+            <p>Master the core syntax, object-oriented principles, and basic architecture of your chosen stack.</p>
+          </div>
+          <div class="it-step">
+            <div class="it-step-num">02</div>
+            <h3>Phase 2: APIs &amp; Data</h3>
+            <p>Build secured backend services, integrate databases, and learn to diagnose and resolve complex issues.</p>
+          </div>
+          <div class="it-step">
+            <div class="it-step-num">03</div>
+            <h3>Phase 3: Front-End UI</h3>
+            <p>Develop responsive, dynamic user interfaces using modern frameworks to connect with your backend.</p>
+          </div>
+          <div class="it-step">
+            <div class="it-step-num">04</div>
+            <h3>Phase 4: Live Project</h3>
+            <p>Put it all together by collaborating on a real-world, live production application from scratch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CAREER SWITCH BANNER -->
+    <section class="it-career-switch section">
+      <div class="container centered">
+        <h2 class="section-title">Changing Careers from Non-Tech to Software Developer</h2>
+        <p class="section-subtitle">Whatever your background, our structured tracks take you from fundamentals to a job-ready skillset.</p>
+      </div>
+    </section>
+
+    <!-- 5. TRACKS OFFERED -->
+    <section class="it-tracks section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2 class="section-title">Tracks Offered</h2>
+        </div>
+
+        <div class="comprehensive-program-banner" style="background: var(--bg-secondary); border: 1px solid var(--accent); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-2xl); text-align: center;">
+          <h3 style="color: var(--accent); font-size: var(--fs-xl); margin-bottom: var(--space-sm);">Comprehensive Full-Stack Training</h3>
+          <p style="color: var(--text-secondary); font-size: var(--fs-lg); margin-bottom: var(--space-md);">Learn thoroughly by working on a <strong>live project</strong>.</p>
+          <div style="font-size: var(--fs-2xl); font-weight: 800; color: var(--text-primary);">₹9,500 <span style="font-size: var(--fs-base); color: var(--text-muted); font-weight: 500;">+ ₹500 for certificate</span></div>
+        </div>
+
+        <h3 style="text-align: center; color: var(--text-primary); margin-bottom: var(--space-xl); font-size: var(--fs-2xl);">Everything You Will Learn</h3>
+        
+        <div class="tech-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Java &amp; Spring Boot</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Python &amp; FastAPI</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Angular Framework</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Android Development</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">MongoDB</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">AWS Fundamentals</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Docker Containerization</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Git Fundamentals</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Agile &amp; Scrum</div>
+          
+          <div class="tech-card" style="background: var(--bg-secondary); border: 1px solid var(--border-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center; font-weight: 600; color: var(--text-primary); transition: all var(--transition-fast);">Swagger &amp; Postman</div>
+
+        </div>
+        
+        <div class="financial-aid-section" style="margin-top: var(--space-3xl); text-align: center; background: var(--bg-secondary); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-light);">
+          <h3 style="color: var(--text-primary); font-size: var(--fs-xl); margin-bottom: var(--space-sm);">Need help with the fees?</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">We believe education should be accessible to everyone. Check if you qualify for our financial aid program.</p>
+          <a href="mailto:sudeb.mitra@gmail.com?subject=Financial%20Aid%20Application" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent);">Apply for Financial Aid</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SKILL MAP -->
+    <section class="it-skillmap section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2 class="section-title">Skill Map</h2>
+        </div>
+
+        <div class="it-skillmap-grid">
+          <div class="it-skill-col">
+            <h3>Back-End Software Developer <br/><small>(Java track path)</small></h3>
+            <p><strong>Skills:</strong> Algorithms, OOP, Unit Testing, SonarQube, Database Concepts (DDL/DML), Database Management, Spring Boot, AWS, REST, JWT</p>
+            <p><strong>Sub-topics:</strong> Introduction to Java, Database (MongoDB), Understanding Spring Boot, Web Scraping</p>
+          </div>
+          <div class="it-skill-col">
+            <h3>Front-End Software Developer <br/><small>(Angular/Android track path)</small></h3>
+            <p><strong>Skills:</strong> Android Framework, Java, Unit Testing, SonarQube, HTML, CSS, jQuery, Bootstrap, Angular Framework, AWS, NPM, TypeScript, JavaScript</p>
+            <p><strong>Sub-topics:</strong> Android Development, Web Development, Angular Development</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. WORKPLACE ENVIRONMENT -->
+    <section class="it-workplace section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="it-eyebrow">Company Property</span>
+          <h2 class="section-title">Workplace Environment</h2>
+        </div>
+        <ul class="it-workplace-list">
+          <li>Agile methodology with scrum meetings</li>
+          <li>Flexible work hours</li>
+          <li>Hybrid model with work-from-home supported</li>
+          <li>Help with professional resume</li>
+          <li>Placement support</li>
+          <li>Job verification support</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="assets/icons/logo.png" alt="CSSllc Logo" class="footer-logo-img" />
+          </a>
+          <p class="footer-blurb">
+            A small team with big ideas - delivering custom software, creative design, and strategic growth services to businesses worldwide.
+          </p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/csslc.india" class="footer-social-link" aria-label="CSSllc on Facebook" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-col-title">Contact Information</h3>
+          <ul class="footer-contact-items">
+            <li class="footer-contact-item">
+              Phone: <a href="tel:+918337036973">+91 8337036973</a>
+            </li>
+            <li class="footer-contact-item">
+              Email: <a href="mailto:sudeb.mitra@gmail.com">sudeb.mitra@gmail.com</a>
+            </li>
+            <li class="footer-contact-item">
+              Website: <a href="https://computersoftwaresolutionsllc.com" target="_blank" rel="noopener">computersoftwaresolutionsllc.com</a>
+            </li>
+            <li class="footer-contact-item">
+              Org: Computer Software Solutions LLC
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="footer-year">2026</span> <a href="index.html">Computer Software Solutions LLC</a>. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
