@@ -8,19 +8,20 @@
 
 /* ---------- Design Tokens ---------- */
 :root {
-  /* Colors — charcoal editorial palette */
-  --bg-primary:     #1A1A1A;
-  --bg-secondary:   #212121;
-  --bg-card:        #2A2A2A;
-  --bg-card-hover:  #333333;
-  --text-primary:   #F0EDE8;
-  --text-secondary: #9E9A94;
-  --text-muted:     #5C5855;
-  --accent:         #A89880;
-  --accent-hover:   #BFB09A;
-  --accent-light:   rgba(168, 152, 128, 0.12);
-  --border:         rgba(255, 255, 255, 0.08);
-  --border-accent:  rgba(168, 152, 128, 0.25);
+  /* Colors — Modern Blue & White light theme */
+  --bg-primary:     #FFFFFF;
+  --bg-secondary:   #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --bg-card-hover:  #EFF6FF;
+  --text-primary:   #0F172A;
+  --text-secondary: #475569;
+  --text-muted:     #64748B;
+  --accent:         #1D4ED8;
+  --accent-hover:   #1E40AF;
+  --accent-light:   rgba(29, 78, 216, 0.08);
+  --border:         #E2E8F0;
+  --border-accent:  rgba(29, 78, 216, 0.3);
+  --border-light:   #F1F5F9;
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -163,13 +164,14 @@ button { cursor: pointer; border: none; background: none; }
 
 .btn-primary {
   background-color: var(--accent);
-  color: var(--bg-primary);
+  color: #FFFFFF;
   padding: 1rem 2.5rem;
 }
 
 .btn-primary:hover {
-  background-color: #beb099; /* slightly lighter taupe */
+  background-color: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25);
 }
 
 .btn-primary:focus-visible {
@@ -179,14 +181,15 @@ button { cursor: pointer; border: none; background: none; }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-primary);
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
   padding: 1rem 2.5rem;
 }
 
 .btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-hover);
+  background-color: var(--accent-light);
+  color: var(--accent-hover);
   transform: translateY(-1px);
 }
 
@@ -224,12 +227,12 @@ button { cursor: pointer; border: none; background: none; }
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: rgba(168,152,128,0.25); border-radius: 99px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: rgba(29, 78, 216, 0.25); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* ---------- Selection ---------- */
-::selection { background: rgba(168,152,128,0.2); color: var(--text-primary); }
+::selection { background: rgba(29, 78, 216, 0.15); color: var(--text-primary); }
 
 /* ---------- Focus ---------- */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -256,21 +259,21 @@ button { cursor: pointer; border: none; background: none; }
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgba(10, 10, 10, 0.85);
+  background-color: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(4px);
 }
 
 .modal-content {
   position: relative;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   width: 100%;
   max-width: 480px;
   transform: translateY(20px) scale(0.98);
   transition: transform var(--transition-base);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
 }
 
 .modal.is-open .modal-content {
