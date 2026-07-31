@@ -379,6 +379,129 @@
         grid-column: span 1;
       }
     }
+
+    /* ---- Leader / Founder Section (Completely Centered Middle Layout) ---- */
+    .leader-section {
+      padding: 80px 0 100px 0;
+      background: #ffffff;
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+      width: 100%;
+      text-align: center;
+    }
+    .leader-stacked-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 32px;
+      width: 100%;
+    }
+    .leader-portrait-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto;
+    }
+    .leader-portrait-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2b4fe0 50%, #6a3fd0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 16px 40px rgba(43, 79, 224, 0.22);
+      border: 6px solid #ffffff;
+      outline: 1px solid rgba(43, 79, 224, 0.15);
+      margin: 0 auto;
+    }
+    .leader-portrait-circle svg {
+      width: 110px;
+      height: 110px;
+    }
+    .leader-text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .leader-eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      color: #2b4fe0;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: center;
+      display: block;
+    }
+    .leader-title {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .leader-body {
+      font-size: clamp(16.5px, 1.8vw, 20px);
+      line-height: 1.75;
+      color: #334155;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 820px;
+      margin: 8px auto 0 auto;
+      text-align: center;
+    }
+    .leader-body p {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .leader-body p.highlight {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.05em;
+      text-align: center;
+    }
+    .leader-signoff {
+      margin: 16px auto 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 4px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .leader-signoff-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+    }
+    .leader-signoff-role {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #64748b;
+      text-align: center;
+    }
   </style>
 
   <main style="padding-top: var(--nav-height);">
@@ -388,7 +511,7 @@
 
           <h1 class="section-title" style="margin-bottom: var(--space-lg); font-size: clamp(26px, 4vw, 42px); color: var(--text-primary); font-weight: 800; line-height: 1.15;">Changing Careers from Non-Tech to Software Developer</h1>
 
-          <span class="fc-eyebrow"><span class="fc-dot"></span>12-WEEK INDUSTRIAL TRACK</span>
+          <span class="fc-eyebrow"><span class="fc-dot"></span>Merit-Based International Internship Programme</span>
           <h2 class="fc-title">Be Industry Ready <span>within our Proven Internship Programme</span></h2>
           <p class="fc-sub">From team rhythm and Agile fundamentals, through real development work, to shipping on a live AWS + MongoDB project — one guided week at a time.</p>
 
@@ -404,10 +527,14 @@
                 </div>
                 <div class="goal-divider"></div>
                 <ul class="goal-features">
+                  <li><span class="goal-check">✓</span><span><strong>Evaluated Cohort: 30 Students Selected</strong></span></li>
                   <li><span class="goal-check">✓</span><span>Official Certification on Completion</span></li>
                   <li><span class="goal-check">✓</span><span>US Support &amp; Mentorship</span></li>
                   <li><span class="goal-check">✓</span><span><strong>100 Hours / 30-Day Training</strong></span></li>
-                  <li><span class="goal-check">✓</span><span>Opportunity to Convert to 2nd Bucket</span></li>
+                  <li><span class="goal-check">✓</span><span>Develop Professional Communication Skills</span></li>
+                  <li><span class="goal-check">✓</span><span>Learn Industry-Relevant Terminology</span></li>
+                  <li><span class="goal-check">✓</span><span>Work with an International Team on a Daily Basis</span></li>
+                  <li><span class="goal-check">✓</span><span>Opportunity to Convert to 2nd Bucket [10 people will be selected based on test, interview and merit]</span></li>
                   <li><span class="goal-check">✓</span><span>100% Remote Work (5 Days a Week)</span></li>
                 </ul>
                 <div class="goal-price-wrap">
@@ -425,7 +552,12 @@
                 </div>
                 <div class="goal-divider"></div>
                 <ul class="goal-features">
+                  <li><span class="goal-check">✓</span><span><strong>Exclusive Batch: Only 10 Candidates Selected</strong></span></li>
+                  <li><span class="goal-check">✓</span><span><strong>100% Merit-Based Selection</strong></span></li>
                   <li><span class="goal-check">✓</span><span><strong>Includes All Bucket 1 Features +</strong></span></li>
+                  <li><span class="goal-check">✓</span><span>Develop Professional Communication Skills</span></li>
+                  <li><span class="goal-check">✓</span><span>Learn Industry-Relevant Terminology</span></li>
+                  <li><span class="goal-check">✓</span><span>Work with an International Team on a Daily Basis</span></li>
                   <li><span class="goal-check">✓</span><span><strong>Placement Support</strong> (Over 95% Success Rate)</span></li>
                   <li><span class="goal-check">✓</span><span><strong>Extensive Alumni Network</strong> Contact Details</span></li>
                   <li><span class="goal-check">✓</span><span><strong>Opportunity to Get Hired by US Team</strong></span></li>
@@ -693,6 +825,38 @@
               <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #1e293b;">
                 <span style="color: #2b4fe0; font-weight: 900;">✓</span> Job verification support
               </div>
+            </div>
+          </div>
+
+    <!-- OUR LEADER / FOUNDER'S MESSAGE SECTION (Wide 2-Column Open Layout) -->
+    <section class="leader-section section" aria-label="A message from our leader">
+      <div class="container">
+        
+        <div class="leader-stacked-wrap">
+
+          <!-- Top: Large Founder Portrait Circle -->
+          <div class="leader-portrait-wrap">
+            <div class="leader-portrait-circle" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.3" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Bottom: Full-Width Centered Message Text -->
+          <div class="leader-text-content">
+            <span class="leader-eyebrow">OUR LEADER</span>
+            <h2 class="leader-title">Building Real Ability &amp; Career Confidence</h2>
+            
+            <div class="leader-body">
+              <p>This is not your ordinary take money, give certificate type of internship programme.</p>
+              <p class="highlight">Here, we craft you, build your skills and your personality — we build your accountability, confidence and your ability.</p>
+              <p>We are completely Merit Based, we have a limited number of openings, we will push you to be better.</p>
+            </div>
+
+            <div class="leader-signoff">
+              <span class="leader-signoff-name">Sudeb Mitra</span>
+              <span class="leader-signoff-role">Founder &amp; Managing Director • Computer Software Solutions LLC</span>
             </div>
           </div>
 
