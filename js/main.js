@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletterForm();
   initModals();
   initAccordion();
+  initTestimonialsCarousel();
 });
 
 // ─── Navbar Glass on Scroll ──────────────────────────────────
@@ -276,6 +277,48 @@ function initAccordion() {
         toggle.setAttribute('aria-expanded', 'true');
         panel.classList.add('is-open');
       }
+}
+
+// ─── Testimonials Carousel Logic ─────────────────────────────────
+function initTestimonialsCarousel() {
+  const carousel = document.getElementById('testimonials-carousel');
+  const prevBtn  = document.getElementById('testimonial-prev');
+  const nextBtn  = document.getElementById('testimonial-next');
+  if (!carousel) return;
+
+  const scrollAmount = 360;
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  }
+
+  // Mouse drag-to-scroll support
+  let isDown = false;
+  let startX, scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  carousel.addEventListener('mouseleave', () => { isDown = false; });
+  carousel.addEventListener('mouseup', () => { isDown = false; });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    carousel.scrollLeft = scrollLeft - walk;
   });
 }
+
