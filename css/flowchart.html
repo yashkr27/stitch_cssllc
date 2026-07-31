@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Week Industrial Track — Computer Software Solutions LLC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --navy: #101a4d;
+            --navy-deep: #0a1236;
+            --blue: #2b4fe0;
+            --purple: #6a3fd0;
+            --red: #e8384f;
+            --paper: #f5f7fd;
+            --ink: #10142c;
+            --ink-soft: #565c7a;
+            --line: #d7dcf3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            padding: 60px 20px 80px;
+        }
+
+        .wrap {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: #e8ecff;
+            padding: 7px 14px 7px 10px;
+            border-radius: 999px;
+        }
+
+        .eyebrow .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 0 3px #fce4e7;
+        }
+
+        h1 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4.4vw, 44px);
+            line-height: 1.06;
+            letter-spacing: -.01em;
+            margin: 18px 0 10px;
+            color: var(--navy-deep);
+        }
+
+        h1 span {
+            color: var(--blue);
+        }
+
+        .sub {
+            max-width: 580px;
+            color: var(--ink-soft);
+            font-size: 15.5px;
+            line-height: 1.55;
+            margin-bottom: 44px;
+        }
+
+        /* ---------------- Diagram (desktop) ---------------- */
+        .diagram {
+            position: relative;
+            margin-bottom: 56px;
+        }
+
+        .diagram svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .node-label {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .node-num {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+        }
+
+        /* ---- Conveyor belt animation ---- */
+        @keyframes conveyorMove {
+            from { stroke-dashoffset: 19; }
+            to   { stroke-dashoffset: 0; }
+        }
+        .moving-trail {
+            animation: conveyorMove 0.8s linear infinite;
+        }
+
+        @media (max-width: 900px) {
+            .diagram-desktop {
+                display: none;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .diagram-mobile {
+                display: none;
+            }
+        }
+
+        /* ---------------- Mobile fallback stepper ---------------- */
+        .diagram-mobile {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 48px;
+        }
+
+        .diagram-mobile .vline {
+            position: absolute;
+            left: 13px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
+        }
+
+        .m-node {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+        }
+
+        .m-badge {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 11.5px;
+            position: relative;
+            z-index: 1;
+            margin-left: -40px;
+        }
+
+        .m-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .m-week {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-right: 8px;
+        }
+
+        /* ---------------- Phase detail cards ---------------- */
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 820px) {
+            .phases {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .phase-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px 20px;
+            box-shadow: 0 14px 30px -20px rgba(16, 26, 77, .28);
+        }
+
+        .phase-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .phase-chip {
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .phase-name {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            font-size: 15.5px;
+            color: var(--navy-deep);
+        }
+
+        .phase-weeks {
+            font-size: 11px;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+
+        .week-block {
+            margin-bottom: 14px;
+        }
+
+        .week-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .week-tag {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 4px;
+        }
+
+        .week-desc {
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: #363c5c;
+        }
+
+        footer {
+            margin-top: 44px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+
+        footer strong {
+            color: var(--navy-deep);
+        }
+
+        .foot-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--ink-soft);
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>12-WEEK INDUSTRIAL TRACK</span>
+        <h1>Be Industry Ready <span>within 12 weeks</span></h1>
+        <p class="sub">From team rhythm and Agile fundamentals, through real development work, to shipping on a live AWS
+            + MongoDB project — one guided week at a time.</p>
+
+        <!-- ===================== DESKTOP SERPENTINE DIAGRAM ===================== -->
+        <div class="diagram diagram-desktop">
+            <svg viewBox="0 0 1020 640" xmlns="http://www.w3.org/2000/svg">
+                <!-- connecting path: serpentine, ascending -->
+                <path
+                    d="M120,540 L380,540 L640,540 L900,540 L900,340 L640,340 L380,340 L120,340 L120,140 L380,140 L640,140 L900,140"
+                    fill="none" stroke="#c7cef2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="moving-trail"
+                    d="M120,540 L380,540 L640,540 L900,540 L900,340 L640,340 L380,340 L120,340 L120,140 L380,140 L640,140 L900,140"
+                    fill="none" stroke="url(#trailGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-dasharray="5 14" />
+
+                <defs>
+                    <linearGradient id="trailGrad" x1="0" y1="1" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#2b4fe0" />
+                        <stop offset="55%" stop-color="#6a3fd0" />
+                        <stop offset="100%" stop-color="#e8384f" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Row 1 (bottom, weeks 1-4) — labels below -->
+                <g class="node-label" fill="#363c5c" font-size="14">
+                    <text x="120" y="595" text-anchor="middle" font-weight="700">Standups &amp; Scrum</text>
+                    <text x="380" y="595" text-anchor="middle" font-weight="700">Jira Boards</text>
+                    <text x="640" y="595" text-anchor="middle" font-weight="700">System Landscape</text>
+                    <text x="900" y="595" text-anchor="middle" font-weight="700">Agile in Practice</text>
+                </g>
+                <g class="node-label" fill="#8b91ad" font-size="11">
+                    <text x="120" y="612" text-anchor="middle">WEEK 01</text>
+                    <text x="380" y="612" text-anchor="middle">WEEK 02</text>
+                    <text x="640" y="612" text-anchor="middle">WEEK 03</text>
+                    <text x="900" y="612" text-anchor="middle">WEEK 04</text>
+                </g>
+
+                <!-- Row 2 (middle, weeks 5-8, right to left) — labels above -->
+                <g class="node-label" fill="#363c5c" font-size="14">
+                    <text x="900" y="313" text-anchor="middle" font-weight="700">Dev Vocabulary</text>
+                    <text x="640" y="313" text-anchor="middle" font-weight="700">First Builds</text>
+                    <text x="380" y="313" text-anchor="middle" font-weight="700">Dev Support</text>
+                    <text x="120" y="313" text-anchor="middle" font-weight="700">Into PROD</text>
+                </g>
+                <g class="node-label" fill="#8b91ad" font-size="11">
+                    <text x="900" y="298" text-anchor="middle">WEEK 05</text>
+                    <text x="640" y="298" text-anchor="middle">WEEK 06</text>
+                    <text x="380" y="298" text-anchor="middle">WEEK 07</text>
+                    <text x="120" y="298" text-anchor="middle">WEEK 08</text>
+                </g>
+
+                <!-- Row 3 (top, weeks 9-12, left to right) — labels below node, rocket after 12 -->
+                <g class="node-label" fill="#363c5c" font-size="14">
+                    <text x="120" y="113" text-anchor="middle" font-weight="700">Cloud Basics</text>
+                    <text x="380" y="113" text-anchor="middle" font-weight="700">Data Layer</text>
+                    <text x="640" y="113" text-anchor="middle" font-weight="700">Live Contribution</text>
+                    <text x="900" y="113" text-anchor="middle" font-weight="700">Ship It</text>
+                </g>
+                <g class="node-label" fill="#8b91ad" font-size="11">
+                    <text x="120" y="98" text-anchor="middle">WEEK 09</text>
+                    <text x="380" y="98" text-anchor="middle">WEEK 10</text>
+                    <text x="640" y="98" text-anchor="middle">WEEK 11</text>
+                    <text x="900" y="98" text-anchor="middle">WEEK 12</text>
+                </g>
+
+                <!-- Nodes -->
+                <g>
+                    <circle cx="120" cy="540" r="22" fill="#2b4fe0" />
+                    <circle cx="380" cy="540" r="22" fill="#3f5ce6" />
+                    <circle cx="640" cy="540" r="22" fill="#5347d8" />
+                    <circle cx="900" cy="540" r="22" fill="#6a3fd0" />
+
+                    <circle cx="900" cy="340" r="22" fill="#7a3fc8" />
+                    <circle cx="640" cy="340" r="22" fill="#8c3fc0" />
+                    <circle cx="380" cy="340" r="22" fill="#a13db8" />
+                    <circle cx="120" cy="340" r="22" fill="#c03a9c" />
+
+                    <circle cx="120" cy="140" r="22" fill="#d43780" />
+                    <circle cx="380" cy="140" r="22" fill="#e03766" />
+                    <circle cx="640" cy="140" r="22" fill="#e8384f" />
+                    <circle cx="900" cy="140" r="24" fill="#e8384f" />
+                </g>
+                <g class="node-num" fill="#fff" font-size="14" text-anchor="middle">
+                    <text x="120" y="546">01</text>
+                    <text x="380" y="546">02</text>
+                    <text x="640" y="546">03</text>
+                    <text x="900" y="546">04</text>
+
+                    <text x="900" y="346">05</text>
+                    <text x="640" y="346">06</text>
+                    <text x="380" y="346">07</text>
+                    <text x="120" y="346">08</text>
+
+                    <text x="120" y="146">09</text>
+                    <text x="380" y="146">10</text>
+                    <text x="640" y="146">11</text>
+                    <text x="900" y="146">12</text>
+                </g>
+
+                <!-- rocket flourish at final node -->
+                <g transform="translate(945, 92) rotate(35)">
+                    <path d="M0 26 C -2 14, 2 2, 9 -8 C 16 2, 20 14, 18 26 C 14 22, 4 22, 0 26 Z" fill="#e8384f" />
+                    <circle cx="9" cy="6" r="3.2" fill="#fff" />
+                    <path d="M0 22 L -8 30 L 0 27 Z" fill="#ff8a97" />
+                    <path d="M18 22 L 26 30 L 18 27 Z" fill="#ff8a97" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- ===================== MOBILE STEPPER ===================== -->
+        <div class="diagram-mobile">
+            <div class="vline"></div>
+
+            <div class="m-node">
+                <div class="m-badge" style="background:#2b4fe0">01</div>
+                <div><span class="m-week">Wk 1</span><span class="m-title">Standups &amp; Scrum</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#3f5ce6">02</div>
+                <div><span class="m-week">Wk 2</span><span class="m-title">Jira Boards</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#5347d8">03</div>
+                <div><span class="m-week">Wk 3</span><span class="m-title">System Landscape</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#6a3fd0">04</div>
+                <div><span class="m-week">Wk 4</span><span class="m-title">Agile in Practice</span></div>
+            </div>
+
+            <div class="m-node">
+                <div class="m-badge" style="background:#7a3fc8">05</div>
+                <div><span class="m-week">Wk 5</span><span class="m-title">Dev Vocabulary</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#8c3fc0">06</div>
+                <div><span class="m-week">Wk 6</span><span class="m-title">First Builds</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#a13db8">07</div>
+                <div><span class="m-week">Wk 7</span><span class="m-title">Dev Support</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#c03a9c">08</div>
+                <div><span class="m-week">Wk 8</span><span class="m-title">Into PROD</span></div>
+            </div>
+
+            <div class="m-node">
+                <div class="m-badge" style="background:#d43780">09</div>
+                <div><span class="m-week">Wk 9</span><span class="m-title">Cloud Basics</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#e03766">10</div>
+                <div><span class="m-week">Wk 10</span><span class="m-title">Data Layer</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#e8384f">11</div>
+                <div><span class="m-week">Wk 11</span><span class="m-title">Live Contribution</span></div>
+            </div>
+            <div class="m-node">
+                <div class="m-badge" style="background:#e8384f">12</div>
+                <div><span class="m-week">Wk 12</span><span class="m-title">Ship It 🚀</span></div>
+            </div>
+        </div>
+
+        <footer>
+            <span><strong>Computer Software Solutions LLC</strong></span>
+            <span class="foot-dot"></span>
+            <span>IT Industrial Training</span>
+            <span class="foot-dot"></span>
+            <span>computersoftwaresolutionsllc.com</span>
+        </footer>
+    </div>
+
+</body>
+
+</html>

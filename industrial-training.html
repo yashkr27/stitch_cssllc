@@ -6,19 +6,23 @@
   <meta name="description" content="IT Industrial Training by Computer Software Solutions LLC." />
   <title>Industrial Training | Computer Software Solutions LLC</title>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/industrial-training.css" />
-  <link rel="stylesheet" href="css/testimonials.css" />
 </head>
 
 <body>
 
   <!-- NAVBAR -->
   <header>
-    <nav id="navbar" role="navigation" aria-label="Main navigation" style="background: rgba(255, 255, 255, 0.92); box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05), 0 1px 0 var(--border);">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
         <div class="nav-inner">
           <button id="hamburger" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -60,125 +64,215 @@
     </div>
   </header>
 
-  <!-- 1. HERO -->
+  <!-- 1. FLOWCHART — 12-Week Industrial Track -->
+  <style>
+    /* ---- Flowchart section scoped styles ---- */
+    .fc-wrap { max-width: 1100px; margin: 0 auto; }
+
+    .fc-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #2b4fe0;
+      background: #e8ecff; padding: 7px 14px 7px 10px; border-radius: 999px;
+    }
+    .fc-eyebrow .fc-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #e8384f; box-shadow: 0 0 0 3px #fce4e7;
+    }
+    .fc-title {
+      font-weight: 900; font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.06; letter-spacing: -.01em;
+      margin: 16px 0 10px; color: #0a1236;
+    }
+    .fc-title span { color: #2b4fe0; }
+    .fc-sub {
+      max-width: 580px; color: #565c7a;
+      font-size: 15.5px; line-height: 1.55; margin-bottom: 40px;
+    }
+
+    /* diagram */
+    .fc-diagram { position: relative; margin-bottom: 52px; }
+    .fc-diagram svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .fc-node-label { font-family: 'Inter', sans-serif; }
+    .fc-node-num   { font-family: 'Archivo', sans-serif; font-weight: 800; }
+    /* ---- Conveyor belt animation ---- */
+    @keyframes fcConveyorMove {
+      from { stroke-dashoffset: 19; }
+      to   { stroke-dashoffset: 0; }
+    }
+    .fc-moving-trail {
+      animation: fcConveyorMove 0.8s linear infinite;
+    }
+
+    @media (max-width: 900px) { .fc-diagram-desktop { display: none; } }
+    @media (min-width: 901px) { .fc-diagram-mobile  { display: none; } }
+
+    /* mobile stepper */
+    .fc-diagram-mobile { position: relative; padding-left: 40px; margin-bottom: 48px; }
+    .fc-vline {
+      position: absolute; left: 13px; top: 6px; bottom: 6px; width: 2px;
+      background: repeating-linear-gradient(to bottom, #d7dcf3 0 6px, transparent 6px 12px);
+    }
+    .fc-m-node { position: relative; display: flex; align-items: center; gap: 12px; padding: 9px 0; }
+    .fc-m-badge {
+      width: 27px; height: 27px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 11.5px;
+      position: relative; z-index: 1; margin-left: -40px;
+    }
+    .fc-m-title  { font-size: 13.5px; font-weight: 600; color: #10142c; }
+    .fc-m-week   {
+      font-size: 10.5px; font-weight: 700; color: #565c7a;
+      text-transform: uppercase; letter-spacing: .06em; margin-right: 8px;
+    }
+
+    /* phase cards */
+    .fc-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    @media (max-width: 820px) { .fc-phases { grid-template-columns: 1fr; } }
+
+    .fc-phase-card {
+      background: #fff; border: 1px solid #d7dcf3; border-radius: 16px;
+      padding: 22px 20px; box-shadow: 0 14px 30px -20px rgba(16,26,77,.28);
+    }
+    .fc-phase-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .fc-phase-chip {
+      width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 12px;
+    }
+    .fc-phase-name  { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15.5px; color: #0a1236; }
+    .fc-phase-weeks { font-size: 11px; color: #565c7a; font-weight: 600; }
+    .fc-week-block  { margin-bottom: 14px; }
+    .fc-week-block:last-child { margin-bottom: 0; }
+    .fc-week-tag {
+      display: inline-block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase; color: #565c7a; margin-bottom: 4px;
+    }
+    .fc-week-desc { font-size: 13.5px; line-height: 1.45; color: #363c5c; }
+  </style>
+
   <main style="padding-top: var(--nav-height);">
-    <section id="testimonials" class="section" aria-label="Testimonials" style="padding-top: var(--space-2xl);">
+    <section id="it-flowchart" class="section" aria-label="12-Week Industrial Track Flowchart" style="padding-top: var(--space-2xl);">
       <div class="container">
-        <div class="section-header centered reveal">
-          <span class="section-eyebrow">Testimonials</span>
-          <h2 class="section-title">People Who Have Taken Our Training</h2>
-          <p class="section-subtitle">
-            Hear directly from students and interns who have gone through our rigorous industrial training program.
-          </p>
-        </div>
+        <div class="fc-wrap">
 
-        <!-- Active Interns (Visible by default) -->
-        <div class="testimonials-grid">
-          <article class="testimonial-card reveal" aria-label="Testimonial from Sudeb Mitra">
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">
-                <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
-              </div>
-              <div class="testimonial-info">
-                <h3 class="testimonial-name">Sudeb Mitra</h3>
-                <span class="testimonial-date">Working here since Jan 2025</span>
-              </div>
-            </div>
-            <div class="testimonial-body">
-              <p>"Building CSSllc has been an incredible journey. I'm proud of the culture we've created and the impactful digital solutions we deliver for our clients every day."</p>
-            </div>
-          </article>
+          <h1 class="section-title" style="margin-bottom: var(--space-lg); font-size: clamp(26px, 4vw, 42px); color: var(--text-primary); font-weight: 800; line-height: 1.15;">Changing Careers from Non-Tech to Software Developer</h1>
 
-          <article class="testimonial-card reveal" aria-label="Testimonial from Lopa Mudra Banerjee">
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">
-                <div class="testimonial-avatar-initials" aria-hidden="true">LB</div>
-              </div>
-              <div class="testimonial-info">
-                <h3 class="testimonial-name">Lopa Mudra Banerjee</h3>
-                <span class="testimonial-date">Working here since Feb 2025</span>
-              </div>
-            </div>
-            <div class="testimonial-body">
-              <p>"The collaborative environment here is unmatched. We prioritize clear communication, which allows our team to tackle complex challenges with speed and precision."</p>
-            </div>
-          </article>
+          <span class="fc-eyebrow"><span class="fc-dot"></span>12-WEEK INDUSTRIAL TRACK</span>
+          <h2 class="fc-title">Be Industry Ready <span>within 12 weeks</span></h2>
+          <p class="fc-sub">From team rhythm and Agile fundamentals, through real development work, to shipping on a live AWS + MongoDB project — one guided week at a time.</p>
 
-          <article class="testimonial-card reveal" aria-label="Testimonial from Hritik Singh">
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">
-                <div class="testimonial-avatar-initials" aria-hidden="true">HS</div>
-              </div>
-              <div class="testimonial-info">
-                <h3 class="testimonial-name">Hritik Singh</h3>
-                <span class="testimonial-date">Working here since Feb 2026</span>
-              </div>
-            </div>
-            <div class="testimonial-body">
-              <p>"As an active intern, I've had the chance to work on real-world production apps. The mentorship and hands-on coding experience have been phenomenal for my career."</p>
-            </div>
-          </article>
-        </div>
+          <!-- ========= DESKTOP SERPENTINE DIAGRAM ========= -->
+          <div class="fc-diagram fc-diagram-desktop" aria-hidden="true">
+            <svg viewBox="0 0 1020 640" xmlns="http://www.w3.org/2000/svg">
+              <!-- track path -->
+              <path d="M120,540 L380,540 L640,540 L900,540 L900,340 L640,340 L380,340 L120,340 L120,140 L380,140 L640,140 L900,140"
+                fill="none" stroke="#c7cef2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="fc-moving-trail" d="M120,540 L380,540 L640,540 L900,540 L900,340 L640,340 L380,340 L120,340 L120,140 L380,140 L640,140 L900,140"
+                fill="none" stroke="url(#fcTrailGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 14"/>
+              <defs>
+                <linearGradient id="fcTrailGrad" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#2b4fe0"/>
+                  <stop offset="55%"  stop-color="#6a3fd0"/>
+                  <stop offset="100%" stop-color="#e8384f"/>
+                </linearGradient>
+              </defs>
 
-        <!-- Accordion Toggle for Ex-Interns -->
-        <div class="accordion-container reveal">
-          <button class="btn btn-outline accordion-toggle" aria-expanded="false" aria-controls="ex-interns-panel" aria-label="Expand" style="padding: 1rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 20px; height: 20px; margin: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-          </button>
-          
-          <div id="ex-interns-panel" class="accordion-content">
-            <div class="testimonials-grid">
-              
-              <article class="testimonial-card" aria-label="Testimonial from Sanmay Das">
-                <div class="testimonial-header">
-                  <div class="testimonial-avatar">
-                    <div class="testimonial-avatar-initials" aria-hidden="true">SD</div>
-                  </div>
-                  <div class="testimonial-info">
-                    <h3 class="testimonial-name">Sanmay Das</h3>
-                    <span class="testimonial-date">Worked: Jan 2025 - Dec 2025</span>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>"My time at CSSllc was transformative. I leveled up my full-stack skills drastically and the team supported my growth every step of the way."</p>
-                </div>
-              </article>
+              <!-- Row 1 (bottom, weeks 1–4) labels below -->
+              <g class="fc-node-label" fill="#363c5c" font-size="14">
+                <text x="120" y="595" text-anchor="middle" font-weight="700">Standups &amp; Scrum</text>
+                <text x="380" y="595" text-anchor="middle" font-weight="700">Jira Boards</text>
+                <text x="640" y="595" text-anchor="middle" font-weight="700">System Landscape</text>
+                <text x="900" y="595" text-anchor="middle" font-weight="700">Agile in Practice</text>
+              </g>
+              <g class="fc-node-label" fill="#8b91ad" font-size="11">
+                <text x="120" y="612" text-anchor="middle">WEEK 01</text>
+                <text x="380" y="612" text-anchor="middle">WEEK 02</text>
+                <text x="640" y="612" text-anchor="middle">WEEK 03</text>
+                <text x="900" y="612" text-anchor="middle">WEEK 04</text>
+              </g>
 
-              <article class="testimonial-card" aria-label="Testimonial from Swarnava Mondal">
-                <div class="testimonial-header">
-                  <div class="testimonial-avatar">
-                    <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
-                  </div>
-                  <div class="testimonial-info">
-                    <h3 class="testimonial-name">Swarnava Mondal</h3>
-                    <span class="testimonial-date">Worked: Feb 2025 - Nov 2025</span>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>"Being able to design user interfaces that actually shipped to production was a massive boost to my portfolio. It's a great place for creative freedom."</p>
-                </div>
-              </article>
+              <!-- Row 2 (middle, weeks 5–8, right to left) labels above -->
+              <g class="fc-node-label" fill="#363c5c" font-size="14">
+                <text x="900" y="313" text-anchor="middle" font-weight="700">Dev Vocabulary</text>
+                <text x="640" y="313" text-anchor="middle" font-weight="700">First Builds</text>
+                <text x="380" y="313" text-anchor="middle" font-weight="700">Dev Support</text>
+                <text x="120" y="313" text-anchor="middle" font-weight="700">Into PROD</text>
+              </g>
+              <g class="fc-node-label" fill="#8b91ad" font-size="11">
+                <text x="900" y="298" text-anchor="middle">WEEK 05</text>
+                <text x="640" y="298" text-anchor="middle">WEEK 06</text>
+                <text x="380" y="298" text-anchor="middle">WEEK 07</text>
+                <text x="120" y="298" text-anchor="middle">WEEK 08</text>
+              </g>
 
-              <article class="testimonial-card" aria-label="Testimonial from Anik Dutta">
-                <div class="testimonial-header">
-                  <div class="testimonial-avatar">
-                    <div class="testimonial-avatar-initials" aria-hidden="true">AD</div>
-                  </div>
-                  <div class="testimonial-info">
-                    <h3 class="testimonial-name">Anik Dutta</h3>
-                    <span class="testimonial-date">Worked: Mar 2025 - Jan 2026</span>
-                  </div>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The robust code review process and emphasis on scalable architecture taught me more in a few months than I learned in years of schooling."</p>
-                </div>
-              </article>
+              <!-- Row 3 (top, weeks 9–12, left to right) labels above -->
+              <g class="fc-node-label" fill="#363c5c" font-size="14">
+                <text x="120" y="113" text-anchor="middle" font-weight="700">Cloud Basics</text>
+                <text x="380" y="113" text-anchor="middle" font-weight="700">Data Layer</text>
+                <text x="640" y="113" text-anchor="middle" font-weight="700">Live Contribution</text>
+                <text x="900" y="113" text-anchor="middle" font-weight="700">Ship It</text>
+              </g>
+              <g class="fc-node-label" fill="#8b91ad" font-size="11">
+                <text x="120" y="98" text-anchor="middle">WEEK 09</text>
+                <text x="380" y="98" text-anchor="middle">WEEK 10</text>
+                <text x="640" y="98" text-anchor="middle">WEEK 11</text>
+                <text x="900" y="98" text-anchor="middle">WEEK 12</text>
+              </g>
 
-            </div>
+              <!-- Nodes -->
+              <g>
+                <circle cx="120" cy="540" r="22" fill="#2b4fe0"/>
+                <circle cx="380" cy="540" r="22" fill="#3f5ce6"/>
+                <circle cx="640" cy="540" r="22" fill="#5347d8"/>
+                <circle cx="900" cy="540" r="22" fill="#6a3fd0"/>
+                <circle cx="900" cy="340" r="22" fill="#7a3fc8"/>
+                <circle cx="640" cy="340" r="22" fill="#8c3fc0"/>
+                <circle cx="380" cy="340" r="22" fill="#a13db8"/>
+                <circle cx="120" cy="340" r="22" fill="#c03a9c"/>
+                <circle cx="120" cy="140" r="22" fill="#d43780"/>
+                <circle cx="380" cy="140" r="22" fill="#e03766"/>
+                <circle cx="640" cy="140" r="22" fill="#e8384f"/>
+                <circle cx="900" cy="140" r="24" fill="#e8384f"/>
+              </g>
+              <g class="fc-node-num" fill="#fff" font-size="14" text-anchor="middle">
+                <text x="120" y="546">01</text> <text x="380" y="546">02</text>
+                <text x="640" y="546">03</text> <text x="900" y="546">04</text>
+                <text x="900" y="346">05</text> <text x="640" y="346">06</text>
+                <text x="380" y="346">07</text> <text x="120" y="346">08</text>
+                <text x="120" y="146">09</text> <text x="380" y="146">10</text>
+                <text x="640" y="146">11</text> <text x="900" y="146">12</text>
+              </g>
+
+              <!-- rocket at node 12 -->
+              <g transform="translate(945,92) rotate(35)">
+                <path d="M0 26 C -2 14, 2 2, 9 -8 C 16 2, 20 14, 18 26 C 14 22, 4 22, 0 26 Z" fill="#e8384f"/>
+                <circle cx="9" cy="6" r="3.2" fill="#fff"/>
+                <path d="M0 22 L -8 30 L 0 27 Z" fill="#ff8a97"/>
+                <path d="M18 22 L 26 30 L 18 27 Z" fill="#ff8a97"/>
+              </g>
+            </svg>
           </div>
-        </div>
 
-      </div>
+          <!-- ========= MOBILE STEPPER ========= -->
+          <div class="fc-diagram fc-diagram-mobile" aria-label="12-week course roadmap">
+            <div class="fc-vline"></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#2b4fe0">01</div><div><span class="fc-m-week">Wk 1</span><span class="fc-m-title">Standups &amp; Scrum</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#3f5ce6">02</div><div><span class="fc-m-week">Wk 2</span><span class="fc-m-title">Jira Boards</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#5347d8">03</div><div><span class="fc-m-week">Wk 3</span><span class="fc-m-title">System Landscape</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#6a3fd0">04</div><div><span class="fc-m-week">Wk 4</span><span class="fc-m-title">Agile in Practice</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#7a3fc8">05</div><div><span class="fc-m-week">Wk 5</span><span class="fc-m-title">Dev Vocabulary</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#8c3fc0">06</div><div><span class="fc-m-week">Wk 6</span><span class="fc-m-title">First Builds</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#a13db8">07</div><div><span class="fc-m-week">Wk 7</span><span class="fc-m-title">Dev Support</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#c03a9c">08</div><div><span class="fc-m-week">Wk 8</span><span class="fc-m-title">Into PROD</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#d43780">09</div><div><span class="fc-m-week">Wk 9</span><span class="fc-m-title">Cloud Basics</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#e03766">10</div><div><span class="fc-m-week">Wk 10</span><span class="fc-m-title">Data Layer</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#e8384f">11</div><div><span class="fc-m-week">Wk 11</span><span class="fc-m-title">Live Contribution</span></div></div>
+            <div class="fc-m-node"><div class="fc-m-badge" style="background:#e8384f">12</div><div><span class="fc-m-week">Wk 12</span><span class="fc-m-title">Ship It 🚀</span></div></div>
+          </div>
+
+        </div><!-- /.fc-wrap -->
+      </div><!-- /.container -->
     </section>
 
     <!-- 2. & 3. COURSE OVERVIEW & ROADMAP (Merged for spacing) -->
@@ -220,13 +314,6 @@
       </div>
     </section>
 
-    <!-- 4. CAREER SWITCH BANNER -->
-    <section class="it-career-switch section">
-      <div class="container centered">
-        <h2 class="section-title">Changing Careers from Non-Tech to Software Developer</h2>
-        <p class="section-subtitle">Whatever your background, our structured tracks take you from fundamentals to a job-ready skillset.</p>
-      </div>
-    </section>
 
     <!-- 5. TRACKS OFFERED -->
     <section class="it-tracks section">
@@ -275,28 +362,6 @@
       </div>
     </section>
 
-    <!-- 6. SKILL MAP -->
-    <section class="it-skillmap section">
-      <div class="container">
-        <div class="section-header centered">
-          <h2 class="section-title">Skill Map</h2>
-        </div>
-
-        <div class="it-skillmap-grid">
-          <div class="it-skill-col">
-            <h3>Back-End Software Developer <br/><small>(Java track path)</small></h3>
-            <p><strong>Skills:</strong> Algorithms, OOP, Unit Testing, SonarQube, Database Concepts (DDL/DML), Database Management, Spring Boot, AWS, REST, JWT</p>
-            <p><strong>Sub-topics:</strong> Introduction to Java, Database (MongoDB), Understanding Spring Boot, Web Scraping</p>
-          </div>
-          <div class="it-skill-col">
-            <h3>Front-End Software Developer <br/><small>(Angular/Android track path)</small></h3>
-            <p><strong>Skills:</strong> Android Framework, Java, Unit Testing, SonarQube, HTML, CSS, jQuery, Bootstrap, Angular Framework, AWS, NPM, TypeScript, JavaScript</p>
-            <p><strong>Sub-topics:</strong> Android Development, Web Development, Angular Development</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 7. WORKPLACE ENVIRONMENT -->
     <section class="it-workplace section">
       <div class="container">
@@ -316,51 +381,112 @@
     </section>
   </main>
 
-  <!-- 8. FOOTER / CONTACT -->
-  <footer id="contact">
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-col footer-brand">
-          <a href="index.html" class="footer-logo">
-            <img src="assets/icons/logo.png" alt="CSSllc Logo" class="footer-logo-img" />
-          </a>
-          <p class="footer-blurb">
-            A small team with big ideas - delivering custom software, creative design, and strategic growth services to businesses worldwide.
-          </p>
-          <div class="footer-socials">
-            <a href="https://facebook.com/csslc.india" class="footer-social-link" aria-label="CSSllc on Facebook" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-          </div>
-        </div>
+      <div class="footer-main">
+        <div class="footer-grid">
 
-        <div class="footer-col">
-          <h3 class="footer-col-title">Contact Information</h3>
-          <ul class="footer-contact-items">
-            <li class="footer-contact-item">
-              Phone: <a href="tel:+918337036973">+91 8337036973</a>
-            </li>
-            <li class="footer-contact-item">
-              Email: <a href="mailto:sudeb.mitra@gmail.com">sudeb.mitra@gmail.com</a>
-            </li>
-            <li class="footer-contact-item">
-              Website: <a href="https://computersoftwaresolutionsllc.com" target="_blank" rel="noopener">computersoftwaresolutionsllc.com</a>
-            </li>
-            <li class="footer-contact-item">
-              Org: Computer Software Solutions LLC
-            </li>
-          </ul>
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="CSSllc - Home">
+              <img src="assets/icons/logo.png" alt="CSSllc Logo" class="footer-logo-img" />
+            </a>
+            <p class="footer-blurb">
+              A small team with big ideas - delivering custom software, creative design,
+              and strategic growth services to businesses worldwide.
+            </p>
+            <div class="footer-socials">
+              <!-- Facebook -->
+              <a href="https://facebook.com/csslc.india" class="footer-social-link" aria-label="CSSllc on Facebook" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <!-- LinkedIn -->
+              <a href="#" class="footer-social-link" aria-label="CSSllc on LinkedIn" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <!-- Instagram -->
+              <a href="#" class="footer-social-link" aria-label="CSSllc on Instagram" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              </a>
+              <!-- Twitter/X -->
+              <a href="#" class="footer-social-link" aria-label="CSSllc on X (Twitter)" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.629L18.244 2.25zM17.083 20.06h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a href="#" class="footer-social-link" aria-label="CSSllc on YouTube" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h3 class="footer-col-title">Quick Links</h3>
+            <nav aria-label="Footer quick links">
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">Process</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-col">
+            <h3 class="footer-col-title">Contact</h3>
+            <ul class="footer-contact-items">
+              <li class="footer-contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z"/></svg>
+                <div><a href="tel:+918337036973">+91 8337036973</a></div>
+              </li>
+              <li class="footer-contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                <a href="mailto:sudeb.mitra@gmail.com">sudeb.mitra@gmail.com</a>
+              </li>
+              <li class="footer-contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                <span>Bidhannagar, Kolkata, India</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-col">
+            <h3 class="footer-col-title">Stay Updated</h3>
+            <p style="font-size:var(--fs-sm);color:var(--text-secondary);line-height:1.65;">
+              Subscribe for occasional updates on our work and insights.
+            </p>
+            <form class="newsletter-form" aria-label="Newsletter subscription" novalidate style="display:flex;flex-direction:column;gap:var(--space-sm);margin-top:var(--space-sm);">
+              <input type="email" class="newsletter-input" placeholder="your@email.com"
+                aria-label="Email for newsletter" autocomplete="email"
+                style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:0.75rem 0.9rem;color:var(--text-primary);font-size:var(--fs-sm);outline:none;width:100%;min-height:44px;transition:border-color var(--transition-fast);" />
+              <button type="submit" class="btn btn-primary newsletter-btn" id="newsletter-submit-btn"
+                style="width:100%;padding:0.7rem;">Subscribe</button>
+            </form>
+          </div>
+
         </div>
       </div>
-      
+
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
         <p class="footer-copyright">
-          &copy; <span id="footer-year">2026</span> <a href="index.html">Computer Software Solutions LLC</a>. All rights reserved.
+          &copy; <span id="footer-year"></span>
+          <a href="index.html">Computer Software Solutions LLC</a>. All rights reserved.
         </p>
+        <nav class="footer-bottom-links" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
       </div>
+
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
