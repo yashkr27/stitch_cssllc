@@ -317,18 +317,24 @@
 
   <!-- ════════════════════════════════════════════════
        TESTIMONIALS
+       Horizontal scrollable carousel with header navigation.
+       NOTE: Images or videos can also be added to testimonial cards in future iterations.
   ════════════════════════════════════════════════ -->
   <section id="testimonials" class="section" aria-label="Testimonials">
     <div class="container">
-      <div class="section-header centered reveal">
-        <span class="section-eyebrow">Testimonials</span>
-        <h2 class="section-title">The People Behind It</h2>
-        <p class="section-subtitle">
-          The CSSllc community over the years — scroll right to see all team members.
-        </p>
+      
+      <!-- Section Header with Right-Aligned Controls (Matching modern carousel design) -->
+      <div class="testimonials-header-wrap reveal">
+        <div class="testimonials-header-left">
+          <span class="section-eyebrow">Testimonials</span>
+          <h2 class="section-title">The People Behind It</h2>
+          <p class="section-subtitle">
+            The CSSllc community over the years — scroll right or use the navigation arrows to view all team members.
+          </p>
+        </div>
 
         <!-- Carousel Navigation Controls -->
-        <div class="carousel-controls">
+        <div class="carousel-controls" aria-label="Carousel navigation">
           <button class="carousel-arrow prev" id="testimonial-prev" aria-label="Previous testimonial">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
           </button>
@@ -338,24 +344,31 @@
         </div>
       </div>
 
-      <!-- Side-by-side Carousel Container -->
-      <div class="testimonials-carousel" id="testimonials-carousel">
+      <!-- Side-by-side Horizontal Carousel Container -->
+      <div class="testimonials-carousel" id="testimonials-carousel" role="region" aria-label="Testimonials carousel">
 
+        <!-- Card 1: Sudeb Mitra -->
         <article class="testimonial-card" aria-label="Testimonial from Sudeb Mitra">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-sudeb.png" alt="Sudeb Mitra portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">SM</div>
+            <span class="testimonial-media-badge">Founder &amp; CEO</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"Building CSSllc has been an incredible journey. I'm proud of the culture we've created and the impactful digital solutions we deliver for our clients every day."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Sudeb Mitra</h3>
               <span class="testimonial-role">Founder &amp; CEO</span>
               <span class="testimonial-date">Working here since Jan 2025</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"Building CSSllc has been an incredible journey. I'm proud of the culture we've created and the impactful digital solutions we deliver for our clients every day."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="sudeb-mitra">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Sudeb Mitra">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
@@ -369,21 +382,28 @@
           </div>
         </article>
 
+        <!-- Card 2: Lopa Mudra Banerjee -->
         <article class="testimonial-card" aria-label="Testimonial from Lopa Mudra Banerjee">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">LB</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-lopa.png" alt="Lopa Mudra Banerjee portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">LB</div>
+            <span class="testimonial-media-badge">Manager</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"The collaborative environment here is unmatched. We prioritize clear communication, which allows our team to tackle complex challenges with speed and precision."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Lopa Mudra Banerjee</h3>
               <span class="testimonial-role">Manager</span>
               <span class="testimonial-date">Working here since Feb 2025</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"The collaborative environment here is unmatched. We prioritize clear communication, which allows our team to tackle complex challenges with speed and precision."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="lopa-banerjee">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Lopa Mudra Banerjee">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
@@ -397,21 +417,28 @@
           </div>
         </article>
 
+        <!-- Card 3: Hritik Singh -->
         <article class="testimonial-card" aria-label="Testimonial from Hritik Singh">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">HS</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-hritik.png" alt="Hritik Singh portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">HS</div>
+            <span class="testimonial-media-badge">Developer</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"As an active intern, I've had the chance to work on real-world production apps. The mentorship and hands-on coding experience have been phenomenal for my career."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Hritik Singh</h3>
               <span class="testimonial-role">Developer</span>
               <span class="testimonial-date">Working here since Feb 2026</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"As an active intern, I've had the chance to work on real-world production apps. The mentorship and hands-on coding experience have been phenomenal for my career."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="hritik-singh">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Hritik Singh">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
@@ -425,21 +452,28 @@
           </div>
         </article>
 
+        <!-- Card 4: Sanmay Das -->
         <article class="testimonial-card" aria-label="Testimonial from Sanmay Das">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">SD</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-sanmay.png" alt="Sanmay Das portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">SD</div>
+            <span class="testimonial-media-badge">Alumni</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"My time at CSSllc was transformative. I leveled up my full-stack skills drastically and the team supported my growth every step of the way."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Sanmay Das</h3>
               <span class="testimonial-role">Developer</span>
               <span class="testimonial-date">Worked: Jan 2025 - Dec 2025</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"My time at CSSllc was transformative. I leveled up my full-stack skills drastically and the team supported my growth every step of the way."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="sanmay-das">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Sanmay Das">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
@@ -453,21 +487,28 @@
           </div>
         </article>
 
+        <!-- Card 5: Swarnava Mondal -->
         <article class="testimonial-card" aria-label="Testimonial from Swarnava Mondal">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">SM</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-swarnava.png" alt="Swarnava Mondal portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">SM</div>
+            <span class="testimonial-media-badge">Alumni</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"Being able to design user interfaces that actually shipped to production was a massive boost to my portfolio. It's a great place for creative freedom."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Swarnava Mondal</h3>
               <span class="testimonial-role">Designer</span>
               <span class="testimonial-date">Worked: Feb 2025 - Nov 2025</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"Being able to design user interfaces that actually shipped to production was a massive boost to my portfolio. It's a great place for creative freedom."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="swarnava-mondal">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Swarnava Mondal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
@@ -481,21 +522,28 @@
           </div>
         </article>
 
+        <!-- Card 6: Anik Dutta -->
         <article class="testimonial-card" aria-label="Testimonial from Anik Dutta">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <div class="testimonial-avatar-initials" aria-hidden="true">AD</div>
+          <!-- NOTE: Card Media Area (Demo photos added below. Videos or alternative images can also be embedded here in future iterations) -->
+          <div class="testimonial-card-media">
+            <img src="assets/images/testimonial-anik.png" alt="Anik Dutta portrait" class="testimonial-media-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="testimonial-avatar-initials" aria-hidden="true" style="display:none;">AD</div>
+            <span class="testimonial-media-badge">Alumni</span>
+            <div class="testimonial-media-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </div>
+          </div>
+
+          <div class="testimonial-body">
+            <p>"The robust code review process and emphasis on scalable architecture taught me more in a few months than I learned in years of schooling."</p>
+          </div>
+
+          <div class="testimonial-footer">
             <div class="testimonial-info">
               <h3 class="testimonial-name">Anik Dutta</h3>
               <span class="testimonial-role">Developer</span>
               <span class="testimonial-date">Worked: Mar 2025 - Jan 2026</span>
             </div>
-          </div>
-          <div class="testimonial-body">
-            <p>"The robust code review process and emphasis on scalable architecture taught me more in a few months than I learned in years of schooling."</p>
-          </div>
-          <div class="testimonial-footer">
             <div class="testimonial-reactions" data-testimonial-id="anik-dutta">
               <button class="reaction-btn like-btn" aria-label="Like testimonial by Anik Dutta">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="reaction-icon"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>

@@ -643,23 +643,28 @@ function initAccordion() {
 }
 
 // ─── Testimonials Carousel Logic ─────────────────────────────────
+/* NOTE: Testimonial cards in this section are designed to support photos, images,
+   or video media attachments in future iterations while preserving the smooth horizontal carousel. */
 function initTestimonialsCarousel() {
   const carousel = document.getElementById('testimonials-carousel');
   const prevBtn  = document.getElementById('testimonial-prev');
   const nextBtn  = document.getElementById('testimonial-next');
   if (!carousel) return;
 
-  const scrollAmount = 360;
+  const getScrollAmount = () => {
+    const card = carousel.querySelector('.testimonial-card');
+    return card ? card.offsetWidth + 24 : 360;
+  };
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     });
   }
 
