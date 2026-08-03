@@ -177,6 +177,111 @@
   position: relative;
 }
 
+/* ---------- Footer & Reactions ---------- */
+.testimonial-footer {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.testimonial-reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reaction-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill, 9999px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs, 0.8125rem);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast, 0.2s ease);
+  outline: none;
+}
+
+.reaction-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.reaction-btn:active {
+  transform: scale(0.95);
+}
+
+.reaction-btn svg {
+  transition: transform 0.2s ease, stroke 0.2s ease, fill 0.2s ease;
+}
+
+/* Like Button Active */
+.reaction-btn.like-btn:hover {
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.reaction-btn.like-btn.is-liked {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: #2563eb;
+  color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.reaction-btn.like-btn.is-liked svg {
+  fill: #2563eb;
+  stroke: #2563eb;
+  transform: scale(1.15);
+}
+
+/* Dislike Button Active */
+.reaction-btn.dislike-btn:hover {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.reaction-btn.dislike-btn.is-disliked {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: #ef4444;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.reaction-btn.dislike-btn.is-disliked svg {
+  fill: #ef4444;
+  stroke: #ef4444;
+  transform: scale(1.15);
+}
+
+.count-badge {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+/* Pulse animation when count changes */
+@keyframes reactionPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.reaction-pop {
+  animation: reactionPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .testimonial-card {
