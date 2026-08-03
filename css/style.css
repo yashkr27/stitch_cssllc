@@ -243,9 +243,10 @@ button { cursor: pointer; border: none; background: none; }
   inset: 0;
   z-index: 9999;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: var(--space-md);
+  padding: clamp(12px, 4vh, 48px) var(--space-md);
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-base), visibility var(--transition-base);

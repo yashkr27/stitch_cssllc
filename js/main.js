@@ -31,7 +31,7 @@ function initNavbar() {
 
 // ─── Hamburger ────────────────────────────────────────────────
 function initHamburger() {
-  const hamburger  = document.getElementById('hamburger');
+  const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   if (!hamburger || !mobileMenu) return;
 
@@ -48,7 +48,7 @@ function initHamburger() {
 
   document.addEventListener('click', (e) => {
     if (mobileMenu.classList.contains('open') &&
-        !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
       toggle(false);
     }
   });
@@ -64,7 +64,7 @@ function initHamburger() {
 // ─── Scroll Spy ───────────────────────────────────────────────
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
-  const links    = document.querySelectorAll('.nav-links a, .mobile-menu-links a');
+  const links = document.querySelectorAll('.nav-links a, .mobile-menu-links a');
   if (!sections.length) return;
 
   const observer = new IntersectionObserver(
@@ -119,7 +119,7 @@ function initScrollReveal() {
 
 // ─── Contact Form ─────────────────────────────────────────────
 function initContactForm() {
-  const form    = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
   if (!form) return;
 
@@ -208,16 +208,17 @@ function initNewsletterForm() {
 }
 
 // ─── Modal Logic ──────────────────────────────────────────────
-// �  /* =========================================================================
+function initModals() {
+  /* =========================================================================
      TODO: DB-DRIVEN DATA SOURCE — The track modal details and mentor profiles
      are currently hardcoded for client demonstration.
      In production, this data (tracks, mentors, pictures, & curriculum)
      will be fetched dynamically from the backend Database API.
      ========================================================================= */
   const trackModalData = {
-    'track-frontend': {
-      title: 'Frontend Software Developer Track',
-      html: `
+  'track-frontend': {
+    title: 'Frontend Software Developer Track',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -280,10 +281,10 @@ function initNewsletterForm() {
           </div>
         </div>
       `
-    },
-    'track-android': {
-      title: 'Android Software Developer Track',
-      html: `
+  },
+  'track-android': {
+    title: 'Android Software Developer Track',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -345,10 +346,10 @@ function initNewsletterForm() {
           </div>
         </div>
       `
-    },
-    'track-springboot': {
-      title: 'Spring Boot Backend Developer Track',
-      html: `
+  },
+  'track-springboot': {
+    title: 'Spring Boot Backend Developer Track',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -410,10 +411,10 @@ function initNewsletterForm() {
           </div>
         </div>
       `
-    },
-    'track-python': {
-      title: 'Python Backend Developer Track',
-      html: `
+  },
+  'track-python': {
+    title: 'Python Backend Developer Track',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -474,10 +475,10 @@ function initNewsletterForm() {
           </div>
         </div>
       `
-    },
-    'bucket-3k': {
-      title: 'Industrial Training Track (₹3,000)',
-      html: `
+  },
+  'bucket-3k': {
+    title: 'Industrial Training Track (₹3,000)',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -529,10 +530,10 @@ function initNewsletterForm() {
           </div>
         </div>
       `
-    },
-    'bucket-9k': {
-      title: 'Career Accelerator Track (₹9,000)',
-      html: `
+  },
+  'bucket-9k': {
+    title: 'Career Accelerator Track (₹9,000)',
+    html: `
         <div class="square-modal-body">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
@@ -585,29 +586,41 @@ function initNewsletterForm() {
         </div>
       `
     }
-  };    </div>
-
-          <div>
-            <h4 class="modal-section-title">Lead Program Mentor</h4>
-            <div class="mentor-featured-card">
-              <div class="mentor-img-wrap">
-                <img src="assets/images/mentor-ankan.png" alt="Ankan - Accelerator Lead" class="mentor-photo" onerror="this.src='https://ui-avatars.com/api/?name=Ankan&background=2b4fe0&color=fff';" />
-              </div>
-              <div class="mentor-details">
-                <div class="mentor-name-title">
-                  Ankan <span class="mentor-badge-tag">Accelerator Lead</span>
-                </div>
-                <div class="mentor-role-text">Lead Enterprise &amp; Placement Mentor</div>
-                <div class="mentor-bio-text">Directing enterprise production workflows, code reviews, system design, and career placement preparation.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `
-    }
   };
+  const modal = document.getElementById('popup-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
 
-  // Open handlers
+  function openModal(title, html) {
+    if (!modal) return;
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalBody) modalBody.innerHTML = html;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Close handlers
+  document.querySelectorAll('[data-close-modal]').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  // ESC key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
   document.querySelectorAll('[data-open-modal]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -830,5 +843,3 @@ function initTestimonialReactions() {
     });
   });
 }
-
-

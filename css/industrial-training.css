@@ -268,20 +268,47 @@
   box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
 }
 
-/* Square Card Modal (Matching Website Theme) */
+/* ── Large Track / Program Modal ────────────────────────────── */
 .modal-content.modal-lg {
-  position: relative;
-  background-color: var(--bg-card, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
-  border-radius: var(--radius-lg, 16px);
-  padding: 0;
-  width: 92vw;
-  max-width: 660px;
-  max-height: 85vh;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  /* Explicit height lets flex children compute sizes */
+  height: 90vh;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  padding: 0;
+  width: 92vw;
+  max-width: 720px;
+  border-radius: var(--radius-lg, 16px);
+  background-color: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+}
+
+/* Hide the generic outer title – the injected HTML has its own header */
+.modal-content.modal-lg > .modal-title {
+  display: none;
+}
+
+/* The modal-body fills remaining card height; square-modal-body scrolls */
+.modal-content.modal-lg > .modal-body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;  /* let square-modal-body scroll, not this wrapper */
+  margin: 0;
+  padding: 0;
+}
+
+/* Pinned footer – never scrolls away */
+.modal-content.modal-lg > .modal-actions {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--border, #e2e8f0);
+  background: var(--bg-secondary, #f8fafc);
 }
 
 /* Custom Header inside Square Modal */
@@ -314,6 +341,7 @@
 
 /* Modal Body Scrollable Region */
 .square-modal-body {
+  height: 100%;        /* fill the modal-body flex container */
   padding: 24px;
   overflow-y: auto;
   display: grid;
