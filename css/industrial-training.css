@@ -311,6 +311,19 @@
   background: var(--bg-secondary, #f8fafc);
 }
 
+/* Compact variant for short-content bucket modals – auto-sizes instead of forced 90vh */
+.modal-content.modal-lg.modal-compact {
+  height: auto;
+}
+.modal-content.modal-lg.modal-compact > .modal-body {
+  flex: none;
+  overflow: visible;
+}
+.modal-content.modal-lg.modal-compact .square-modal-body {
+  height: auto;
+  overflow: visible;
+}
+
 /* Custom Header inside Square Modal */
 .square-modal-header {
   display: flex;
@@ -349,6 +362,13 @@
   gap: 20px;
   scrollbar-width: thin;
   scrollbar-color: var(--accent, #1d4ed8) var(--bg-secondary, #f8fafc);
+}
+
+/* Single-column variant for program-only modals (bucket-3k, bucket-9k) */
+.square-modal-body--single {
+  grid-template-columns: 1fr;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .square-modal-body::-webkit-scrollbar {

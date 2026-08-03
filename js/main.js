@@ -479,7 +479,7 @@ function initModals() {
   'bucket-3k': {
     title: 'Industrial Training Track (₹3,000)',
     html: `
-        <div class="square-modal-body">
+        <div class="square-modal-body square-modal-body--single">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
               100-hour evaluated cohort designed for students and career switchers to gain real workplace experience, US support, and live enterprise system exposure.
@@ -512,29 +512,13 @@ function initModals() {
               </div>
             </div>
           </div>
-
-          <div class="square-modal-col-side">
-            <div class="square-mentor-card">
-              <div class="square-mentor-header">
-                <img src="assets/images/mentor-anish.png" alt="Anish" class="square-mentor-img" onerror="this.src='https://ui-avatars.com/api/?name=Anish&background=1D4ED8&color=fff';" />
-                <div class="square-mentor-meta">
-                  <span class="square-mentor-tag">Foundation Lead</span>
-                  <h5 class="square-mentor-name">Anish</h5>
-                  <span class="square-mentor-role">Lead Foundation &amp; Web Mentor</span>
-                </div>
-              </div>
-              <p class="square-mentor-bio">
-                Guiding students through core technical skills, workplace rhythms, and live project onboarding.
-              </p>
-            </div>
-          </div>
         </div>
       `
   },
   'bucket-9k': {
     title: 'Career Accelerator Track (₹9,000)',
     html: `
-        <div class="square-modal-body">
+        <div class="square-modal-body square-modal-body--single">
           <div class="square-modal-col-main">
             <p class="square-modal-desc">
               Exclusive 10-candidate merit cohort. Includes 16 weeks of deep enterprise engineering, live production deployment, placement support (&gt;95% success rate), and direct US hiring opportunities.
@@ -561,26 +545,10 @@ function initModals() {
             </div>
 
             <div class="square-exposure-box">
-              <span class="square-exposure-icon">🌟</span>
+              <span class="square-exposure-icon">💼</span>
               <div>
                 <strong>Live Enterprise Exposure:</strong> Full codebase access &amp; contributions to Enterprise Job Portal applications.
               </div>
-            </div>
-          </div>
-
-          <div class="square-modal-col-side">
-            <div class="square-mentor-card">
-              <div class="square-mentor-header">
-                <img src="assets/images/mentor-ankan.png" alt="Ankan" class="square-mentor-img" onerror="this.src='https://ui-avatars.com/api/?name=Ankan&background=1D4ED8&color=fff';" />
-                <div class="square-mentor-meta">
-                  <span class="square-mentor-tag">Accelerator Lead</span>
-                  <h5 class="square-mentor-name">Ankan</h5>
-                  <span class="square-mentor-role">Lead Enterprise &amp; Placement Mentor</span>
-                </div>
-              </div>
-              <p class="square-mentor-bio">
-                Directing enterprise production workflows, code reviews, system design, and career placement preparation.
-              </p>
             </div>
           </div>
         </div>
@@ -636,6 +604,9 @@ function initModals() {
       }
 
       const type = trigger.getAttribute('data-open-modal');
+      const modalCard = modal ? modal.querySelector('.modal-content') : null;
+      const isBucket = type === 'bucket-3k' || type === 'bucket-9k';
+      if (modalCard) modalCard.classList.toggle('modal-compact', isBucket);
       
       if (trackModalData[type]) {
         openModal(trackModalData[type].title, trackModalData[type].html);
